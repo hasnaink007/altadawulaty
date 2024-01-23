@@ -45,7 +45,8 @@ document.addEventListener('alpine:init', () => {
 			.then(res => res.json())
 			.then(res => {
 				let hash = new URLSearchParams(window.location.search).get('hash')
-				this.company = (res.companies||[]).find(c => c._id == hash)
+				let company = (res.companies||[]).find(c => c._id == hash)
+				this.company = company ? company : res.companies[0];
 				this.companies = res.companies||[]
 			})
 			.catch(e => console.log(e))
