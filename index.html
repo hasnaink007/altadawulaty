@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Saudi Stock Exchange</title>
+    <link rel="icon" href="./img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/custom.css">
+    <!-- plugin stylesheet -->
+    <link rel="stylesheet" type="text/css" href="./css/vendors.css" />
+    <!-- app style -->
+    <link href="./css/style-2.css" rel="stylesheet" type="text/css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap4.min.js"></script>
+    <!-- Include DataTables Buttons JS along with DataTables JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script> -->
+  </head>
+  <body id="light">
+
+    <script>
+      /* $(document).ready(function() {
+        $("#resizeButton").click(function() {
+          // Toggle between col-lg-3 and col-lg-12
+          $("#targetColumn").toggleClass("col-md-9 col-lg-12");
+        });
+      }); */
+    </script>
+    <script>
+      $(document).ready(function() {
+        $("#resizeButtontable").click(function() {
+          // Toggle between col-lg-3 and col-lg-12
+          $("#targetColumntable").toggleClass("col-lg-3 col-lg-12");
+          $('#datatable').css("width", "100%");
+          $('.english').css("width", "15px");
+          // Toggle between set_fixed and fixed on another element
+          $("#otherElementId").toggleClass("set_fixed fixeds");
+          if ($("#otherElementId").hasClass("set_fixed")) {
+            window.location.reload(true);
+            $("#t_d_none").css("display", "none");
+            $("#otherElementId").addClass('fixeds');
+          }
+          if ($("#otherElementId").hasClass("fixeds")) {
+            $("#t_d_none").css("display", "block");
+            $(".nav-pills").addClass('justify-content-center');
+            $(".nav-pills li").css("width", "12%");
+            $(".my_own_class").css("width", "16%");
+          }
+        });
+        
+        // Get the modal element and the button to open it
+        var modal = document.getElementById('myModal');
+        var btn = document.getElementById('open-modal-btn');
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName('close')[0];
+        // When the user clicks the button, open the modal
+        $(btn).on('click', function() {
+          modal.style.display = 'block';
+        });
+        // When the user clicks on <span> (x), close the modal
+        span.addEventListener('click', function() {
+          modal.style.display = 'none';
+        });
+        // When the user clicks anywhere outside of the modal, close it
+        window.addEventListener('click', function(event) {
+          if (event.target === modal) {
+            modal.style.display = 'none';
+          }
+        });
+      });
+    </script>
+    <header class="light-bb">
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="https://www.aitadawulaty.com">
+          <img src="./img/logo-white.png" alt="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerMenu" aria-controls="headerMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="icon ion-md-menu"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="headerMenu">
+          <ul class="navbar-nav ml-auto align-items-center">
+            <li class="nav-item header-custom-icon  mr-4">
+              <a href="https://www.aitadawulaty.com/account/my-account" class="" style="text-decoration:underline;">Back to your account </a>
+            </li>
+            <li class="nav-item header-custom-icon">
+              <!-- <a href="/auth/print_page?id=2030&userip=MTIyLjIzLjIzLjIz&userid=dGVzdA==" class=" ml-2" style="background: none;border: none;outline: none;"><span><img src="./img/printer.png" style="width:30px;"></span></a> -->
+            </li>
+            <!-- <li class="nav-item header-custom-icon ml-3"><button id="open-modal-btn" style="background: none;border:none;outline:none;"><i class="fa fa-cog "></i></button></li> -->
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="row">
+          <div class="col-lg-12">
+            <h5 class="text-center ">Choose Sidebar Colour</h5>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <a href="/auth/update_color?color=131722&userip=MTIyLjIzLjIzLjIz&userid=dGVzdA==">
+              <p style="color: #fff;background: #131722;padding: 5px;text-align: center;margin: 2px 0px;">Default </p>
+            </a>
+          </div>
+          <div class="col-lg-12">
+            <a href="/auth/update_color?color=072e50&userip=MTIyLjIzLjIzLjIz&userid=dGVzdA==">
+              <p style="color: #fff;background: #072e50;padding: 5px; text-align: center;margin: 2px 0px;">Blue </p>
+            </a>
+          </div>
+          <div class="col-lg-12">
+            <a href="/auth/update_color?color=99202b&userip=MTIyLjIzLjIzLjIz&userid=dGVzdA==">
+              <p style="color: #fff;background: #99202b; padding: 5px; text-align: center;margin: 2px 0px;">Red </p>
+            </a>
+          </div>
+          <div class="col-lg-12">
+            <a href="/auth/update_color?color=4e545a&userip=MTIyLjIzLjIzLjIz&userid=dGVzdA==">
+              <p style="color: #fff;background: #4e545a; padding: 5px; text-align: center;margin: 2px 0px;">Grey </p>
+            </a>
+          </div>
+          <div class="col-lg-12">
+            <a href="/auth/update_color?color=1a712e&userip=MTIyLjIzLjIzLjIz&userid=dGVzdA==">
+              <p style="color: #fff;background: #1a712e; padding: 5px; text-align: center;margin: 2px 0px;">Green </p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container-fluid mtb15 no-fluid">
+      <div class="row">
+        <div class="col-md-3" id="targetColumntable">
+          <div class="market-pairs" id="otherElementId">
+            <li class=" header-custom-icon row align-items-center justify-content-end" style="list-style:none;padding:0px;">
+              <div class="col-lg-4 col-4">
+                <a class="nav-link   btn btn-success" href="?full_list=1&userip=MTIyLjIzLjIzLjIz&userid=dGVzdA==" style="background: #033a6a; border: 1px solid #033a6a;"> Full List </a>
+              </div>
+              <div class="col-lg-4 col-4">
+                <a class="nav-link  btn btn-success" href="?watchlist=1&userip=MTIyLjIzLjIzLjIz&userid=dGVzdA==" style="background: #033a6a; border: 1px solid #033a6a;"> Watchlist <span class="bg-danger" style="position: absolute; top: -7px; padding: 5px; border-radius: 50%; height: 17px; line-height: 9px;    right: 14px;">9</span></a>
+              </div>
+              <div class="col-lg-2 col-2">
+                <a class="nav-link text-right" href="#" id="resizeButtontable">
+                  <i class="icon ion-md-expand"></i>
+                </a>
+              </div>
+            </li>
+            <ul class="nav nav-pills " role="tablist">
+              <!-- <li class="nav-item m-1 " style="width:25%">
+                <select onchange="language(this.value);" class="form-contorl p-1" style="background:#1e2435; color:#fff;width:100%;border-radius: 4px;">
+                  <option value disabled selected>Choose Language...</option>
+                  <option value="1">English</option>
+                  <option value="2">Arabic</option>
+                </select>
+              </li> -->
+              <!-- <li class="nav-item m-1" style="width:25%">
+                <select onchange="filter(this.value);" class="form-contorl p-1" style="background:#1e2435;  color:#fff; width:100%; border-radius: 4px; width:100%">
+                  <option value disabled selected>Choose Category...</option>
+                  <option value="Industrials">Industrials</option>
+                  <option value="Energy">Energy</option>
+                  <option value="Consumer Cyclical">Consumer Cyclical</option>
+                  <option value="Basic Materials">Basic Materials</option>
+                  <option value="Consumer Defensive">Consumer Defensive</option>
+                  <option value="Communication Services">Communication Services</option>
+                  <option value="Technology">Technology</option>
+                  <option value="Healthcare">Healthcare</option>
+                  <option value="Financial Services">Financial Services</option>
+                  <option value="Utilities">Utilities</option>
+                  <option value="Real Estate">Real Estate</option>
+                </select>
+              </li> -->
+              <li class="nav-item m-1 english-1" id="t_d_none">
+                <div class="custom-dropdown" style="width: 100%;">
+                  <!-- <button class="btn btn-light p-2" style="width:100%;height: 32px;" onclick="toggleDropdown()"> Show/Hide -->
+                    <!-- <i class="dashicons dashicons-admin-generic"></i> -->
+                  </button>
+                  <div id="dropdown-content" class="dropdown-content">
+                    <!-- <label><input type="checkbox" class="mr-2" onclick="toggleColumn(1)" checked>Code</label><label><input type="checkbox" class="mr-2" onclick="toggleColumn(3)" checked> Short Name</label> -->
+                    <!-- <label><input type="checkbox" class="mr-2" onclick="toggleColumn(5)">Company Name </label> -->
+                    <!-- <label><input type="checkbox" class="mr-2" onclick="toggleColumn(7)"> Category </label>
+                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(9)"> Dividends 2023 </label>
+                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(11)">Dividends 2022 </label>
+                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(13)"> High </label>
+                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(15)">Low </label>
+                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(17)"> Current Price </label>
+                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(19)">% of 2023 Dividends of high </label>
+                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(21)"> % of 2023 Dividends of low </label>
+                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(23)"> % of 2023 Dividends of closing </label>
+                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(25)"> % of 2022 Dividends of high </label>
+                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(27)"> % of 2022 Dividends of low </label>
+                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(29)"> Stability of Prices </label> -->
+                    
+                    <!-- <label><input type="checkbox" class="mr-2" onclick="toggleColumn(31)">Difference between Current and Lowest </label> -->
+                    <!-- <label><input type="checkbox" class="mr-2" onclick="toggleColumn(33)">Distance Closing low 3 Years</label> -->
+                    <!-- <label><input type="checkbox" class="mr-2" onclick="toggleColumn(35)">Dividends High Past 3 Years</label><label><input type="checkbox" class="mr-2" onclick="toggleColumn(37)">Variation Past 3 Years</label><label><input type="checkbox" class="mr-2" onclick="toggleColumn(39)">Overall Past 3 Years</label><label><input type="checkbox" class="mr-2" onclick="toggleColumn(41)">Overall Light Past 3 Years</label> -->
+                    <!-- <label><input type="checkbox" class="mr-2" onclick="toggleColumn(43)" checked> Over All Rank</label> -->
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="tab-content table-responsive  mt-1" x-data="">
+              <table id="datatable" class="display compact table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th class="english" title="Unique identifier code given by the marker regulator for each company">Code</th>
+                    <th class="english" title="Formal Name as in CR ">Company name</th>
+                    <th class="english" title="Formal Name as in CR ">30 minutes change</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <script>
+          // var table = $('#datatable').DataTable();
+         /*  $('#datatable').DataTable({
+            searching: false,
+            paging: false,
+            ordering: false,
+            scroller: false,
+          }); */
+          // new DataTable.Responsive(table);
+        </script>
+        <!-- header end -->
+        <div id="targetColumn" x-data="{fullscreen: false}" x-bind:class="fullscreen ? 'col-md-9 set_post_over col-md-9 col-lg-12' : 'col-md-9 set_post_over'">
+          <div class="row align-items-center">
+            <div class="col-md-12 col-12 mb-3 p-0">
+              <div class="" style="background:#051f36 !important;    padding: 10px 16px;">
+                <div class="row align-items-center">
+                  <div class="col-lg-6 col-12">
+                    <h5 class="text-white mb-0">Saudi Stock Exchange </h5>
+                    <!-- <div class="d-flex">
+                      <span class="text-danger" style="font-size: 10px;    margin-top: 4px;">Closed</span>
+                      <p class=" ml-2" style="font-size: 10px;">05/01/2024 03:49:22 PM</p>
+                    </div> -->
+                  </div>
+                  <div class="col-lg-6 text-right col-12">
+                    <span class=" bg-light" style="font-size: 11px; border-radius: 15px; padding: 2px 11px;">TADAWUL ALL SHARE INDEX <i class="fa fa-caret-down"></i>
+                    </span>
+                    <!-- <h5 class="text-white mt-1" style="margin-left: 49px;">12145.45
+                      <span class="text-success ml-1">56.66</span><span class="bg-success ml-1" style="font-size: 11px;padding: 1px 6px;">0.50%</span>
+                    </h5> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-center">
+            <div class="col-md-6 col-6 mb-3 ">
+              <img src="#" alt="" />
+              <h1 class=" ml-3 mb-0" x-text="$store?.ticker?.company.title">---</h1>
+              <h2 class=" ml-3" x-text="$store?.ticker?.company.code">---</h2>
+            </div>
+            <div class="col-lg-6 col-6 mb-3 ">
+              <a class="nav-link  text-right" style="font-size: 23px;" href="#" id="resizeButton" @click="fullscreen = ! fullscreen">
+                <i class="icon ion-md-expand "></i>
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mb-4">
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="market-history market-order p-3">
+                    <div class=" row align-items-center" style="list-style:none;padding:0px">
+                      <div class="col-lg-6 col-6">
+                        <h6 class="english  mt-1 heading-font">Daily Prices</h6>
+                        <h6 class="arabic  mt-1 heading-font">السعر اليومي</h6>
+                      </div>
+                      <div class="col-lg-12 col-12 text-center mt-3">
+                        <span class="bg-dark text-light" style="padding: 2px 6px;border-radius:5px; font-size: 9px;">High : <span x-text="$store?.ticker?.company.high">---</span></span>
+                        <span class="bg-dark text-light" style="padding: 2px 6px;border-radius:5px; font-size: 9px;">Low : <span x-text="$store?.ticker?.company.low">---</span></span>
+                      </div>
+                    </div>
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                      <div class="apexchart-wrapper">
+                        <div id="priceChart"></div>
+                      </div>
+                    </div>
+                    <!-- TradingView Widget END -->
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="market-history market-order p-3">
+                    <div class="row">
+                      <div class="col-lg-12 col-12 d-flex">
+                        <h6 class="english  mt-1 heading-font">Dividends <span x-text="$store.ticker.dividendsDates[0]">---</span> & <span x-text="$store.ticker.dividendsDates[1]">---</span></h6>
+                        <h6 class="arabic  mt-1 heading-font">أرباح <span x-text="$store.ticker.dividendsDates[1]"> و <span x-text="$store.ticker.dividendsDates[0]">---</span></h6>
+                        <span class="english" title="Profit share given for each stock in year">
+                          <i class="fa fa-question-circle ml-2"></i>
+                        </span>
+                        <span class="arabic" title="حصة الربح الممنوحة لكل سهم في عامي">
+                          <i class="fa fa-question-circle ml-2"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                      <div class="apexchart-wrapper">
+                        <div id="dividendsChart"></div>
+                      </div>
+                    </div>
+                    <!-- TradingView Widget END -->
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="market-history market-order p-3">
+                    <div class="row">
+                      <div class="col-lg-12 col-12 d-flex">
+                        <h6 class=" english  mt-1 heading-font">Difference of current from lowest</h6>
+                        <h6 class=" arabic  mt-1 heading-font">فرق بين السعر الحالي عن السعر الأقل (المسافة من الأدنى) تعني مدى قرب السعر الحالي من أدنى سعر معروف منذ سنتين.</h6>
+                        <span class="english" title="Means how close the current price to the lowest known price over the past 2 years. 100% means the stock in its lowest known price since 2 years ago">
+                          <i class="fa fa-question-circle ml-2"></i>
+                        </span>
+                        <span class="arabic" title="100% تعني أن السهم عند أدنى سعر معروف له منذ سنتين ">
+                          <i class="fa fa-question-circle ml-2"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                      <div class="apexchart-wrapper">
+                        <div id="distanceChart"></div>
+                      </div>
+                    </div>
+                    <!-- TradingView Widget END -->
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="market-history market-order p-3">
+                    <div class="row">
+                      <div class="col-lg-12 col-12 d-flex">
+                        <h6 class="english  mt-1 heading-font">Stability of Prices </h6>
+                        <h6 class=" arabic  mt-1 heading-font">استقرار الأسعار </h6>
+                        <span class="english" title="This is a measure to calculate the stability of the prices over the past 2 years. A 100% is most stable and 0% means high volatility">
+                          <i class="fa fa-question-circle ml-2"></i>
+                        </span>
+                        <span class="arabic" title="وهو مقياس لحساب ثبات الأسعار منذسنتين وحتى الآن. 100% هو الأكثر استقرارًا و0% يعني تقلبات عالية">
+                          <i class="fa fa-question-circle ml-2"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container">
+                      <div class="apexchart-wrapper">
+                        <div id="stabilityChart"></div>
+                      </div>
+                    </div>
+                    <!-- TradingView Widget END -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6  mb-2">
+              <div class="market-history market-order p-3 mb-4">
+                <div class="row">
+                  <div class="col-lg-12 col-12 d-flex">
+                    <h6 class="english  m t-1 heading-font">Overall Rank</h6>
+                    <h6 class="arabic  mt-1 heading-font">التقييم العام</h6>
+                    <span class="english" title="The overall rank represents the average of 7 indicators. High overall rank means: High dividends return from highest known price in the last 2 years.  High stability of the stock  Current price is at close to lowest known price in the last 2 years which is good indicator of investment">
+                      <i class="fa fa-question-circle ml-2"></i>
+                    </span>
+                    <span class="arabic" title="هو متوسط 7 مؤشرات وكل ما ارتفع هذا المؤشر يدل على:  نسبة عائد مرتفعة من اعلى سعر للسهم في السنتين الماضيتين استقرار مرتفع في سعر السهم السعر الحالي قريب من اقل سعر معروف للسهم في العامين الماضيين وهذا المؤشر يساعد في قرار التوقيت المناسب للاستثمار في الشركة ">
+                      <i class="fa fa-question-circle ml-2"></i>
+                    </span>
+                  </div>
+                </div>
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                  <div class="apexchart-wrapper">
+                    <div id="overallRankChart"></div>
+                  </div>
+                </div>
+                <!-- TradingView Widget END -->
+              </div>
+
+              
+              <div class="market-history market-order p-3 mb-3">
+                <h6 class="">OverAll Rank : <span x-text="$store?.ticker?.calculations?.[0]?.overall_calcuation?.toFixed(2)"></span>%</h6>
+                <div id="chartdiv_2"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="market-history market-order p-3">
+                <h3 class="">All Over Analysis</h3>
+                <div id="allOverAnalysisChart"></div>
+              </div>
+            </div>
+            
+
+            <div class="col-lg-6">
+              <div class="market-history market-order  p-3">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <h3 class="">Fundamentals</h3>
+                      </div>
+                    </div>
+                    <div class="">
+                      <div class="ptt-3 m-b-5" style="border-bottom: 1px solid rgb(218 220 224 / 13%);">
+                        <div class="d-sm-flex justify-content-between">
+                          <div class="transition-left">
+                            <h5 class="mt-1 mb-0">Stock Type</h5>
+                          </div>
+                          <div class="transition-right text-sm-right">
+                            <strong class=" d-block" x-text="$store?.ticker?.company.type"></strong>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ptt-3 m-b-5" style="border-bottom: 1px solid rgb(218 220 224 / 13%);">
+                        <div class="d-sm-flex justify-content-between">
+                          <div class="transition-left">
+                            <h5 class="mt-1 mb-0">Country Name</h5>
+                          </div>
+                          <div class="transition-right text-sm-right">
+                            <strong class=" d-block" x-text="$store?.ticker?.company.country"> </strong>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ptt-3 m-b-5" style="border-bottom: 1px solid rgb(218 220 224 / 13%);">
+                        <div class="d-sm-flex justify-content-between">
+                          <div class="transition-left">
+                            <h5 class="mt-1 mb-0">ISIN</h5>
+                          </div>
+                          <div class="transition-right text-sm-right">
+                            <strong class=" d-block " x-text="$store?.ticker?.company.isin"></strong>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ptt-3 m-b-5" style="border-bottom: 1px solid rgb(218 220 224 / 13%);">
+                        <div class="d-sm-flex justify-content-between">
+                          <div class="transition-left">
+                            <h5 class="mt-1 mb-0">Currency Name</h5>
+                          </div>
+                          <div class="transition-right text-sm-right">
+                            <strong class=" d-block "  x-text="$store?.ticker?.company.currency"></strong>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ptt-3 m-b-5" style="border-bottom: 1px solid rgb(218 220 224 / 13%);">
+                        <div class="d-sm-flex justify-content-between">
+                          <div class="transition-left">
+                            <h5 class="mt-1 mb-0">Exchange Code</h5>
+                          </div>
+                          <div class="transition-right text-sm-right">
+                            <strong class=" d-block " x-text="$store?.ticker?.company.code"></strong>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ptt-3 m-b-5" style="border-bottom: 1px solid rgb(218 220 224 / 13%);">
+                        <div class="d-sm-flex justify-content-between">
+                          <div class="transition-left">
+                            <h5 class="mt-1 mb-0">Primary Ticker</h5>
+                          </div>
+                          <div class="transition-right text-sm-right">
+                            <strong class=" d-block " x-text="$store?.ticker?.company.code +'.'+ $store?.ticker?.company.exchange"> </strong>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- <div class="ptt-3 m-b-5" style="border-bottom: 1px solid rgb(218 220 224 / 13%);">
+                        <div class="d-sm-flex justify-content-between">
+                          <div class="transition-left">
+                            <h5 class="mt-1 mb-0">Sector</h5>
+                          </div>
+                          <div class="transition-right text-sm-right">
+                            <strong class=" d-block "> Industrials </strong>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ptt-3 m-b-5" style="border-bottom: 1px solid rgb(218 220 224 / 13%);">
+                        <div class="d-sm-flex justify-content-between">
+                          <div class="transition-left">
+                            <h5 class="mt-1 mb-0">Industry</h5>
+                          </div>
+                          <div class="transition-right text-sm-right">
+                            <strong class=" d-block "> Conglomerates </strong>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ptt-3 m-b-5" style="border-bottom: 1px solid rgb(218 220 224 / 13%);">
+                        <div class="d-sm-flex justify-content-between">
+                          <div class="transition-left">
+                            <h5 class="mt-1 mb-0">P/E Ratio</h5>
+                          </div>
+                          <div class="transition-right text-sm-right">
+                            <strong class=" d-block "> 97.1429 </strong>
+                          </div>
+                        </div>
+                      </div> -->
+                      <div class="ptt-3 m-b-5" style="border-bottom: 1px solid rgb(218 220 224 / 13%);">
+                        <div class="d-sm-flex justify-content-between">
+                          <div class="transition-left">
+                            <h5 class="mt-1 mb-0">Dividend Yield</h5>
+                          </div>
+                          <div class="transition-right text-sm-right">
+                            <strong class=" d-block "x-text="$store?.ticker?.dividends[$store?.ticker?.dividends.length - 1]?.value "></strong>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="ptt-3 m-b-5" style="border-bottom: 1px solid rgb(218 220 224 / 13%);">
+                        <div class="d-sm-flex justify-content-between">
+                          <div class="transition-left">
+                            <h5 class="mt-1 mb-0">Primary Exchange</h5>
+                          </div>
+                          <div class="transition-right text-sm-right">
+                            <strong class=" d-block ">TADAWUL </strong>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="market-history market-order p-3">
+                <h3 class="">About </h3>
+                <p class="">Saudi Arabia Refineries Company engages in the extraction of crude oil in the Kingdom of Saudi Arabia. The company is involved in the construction of refineries and petrochemical plants; buying and selling of lands and real estate; and management and leasing of non-residential real estate properties, as well as dealing in securities. It also invests in local companies. Saudi Arabia Refineries Company was incorporated in 1960 and is based in Jeddah, the Kingdom of Saudi Arabia. </p>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="market-history market-order mt15 p-3">
+                <h3 class="">News</h3>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <p class=" text-center mt-4"> No Recent News Available...</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- plugins -->
+    <script src="./js/vendors.js"></script>
+    <!-- custom app -->
+    <script src="./js/app.js"></script>
+    <!-- <script src="./assets/js/jquery-3.4.1.min.js"></script> -->
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/amcharts-core.min.js"></script>
+    <script src="./js/amcharts.min.js"></script>
+    <script src="./js/jquery.mCustomScrollbar.js"></script>
+    <!-- Resources -->
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <script src="./js/custom.js"></script>
+    <script src="./script.js"></script>
+    <script>
+      $('tbody, .market-news ul').mCustomScrollbar({
+        theme: 'minimal'
+      });
+      $(function() {
+        var magnific = jQuery(".magnific-wrapper");
+        if (magnific.length > 0) {
+          $('.view').magnificPopup({
+            type: 'image'
+            // other options
+          });
+          $(document).ready(function() {
+            $('.view2').magnificPopup({
+              disableOn: 700,
+              type: 'iframe',
+              mainClass: 'mfp-fade',
+              removalDelay: 160,
+              preloader: false,
+              fixedContentPos: false
+            });
+          });
+          $('.view1').magnificPopup({
+            type: 'image',
+            gallery: {
+              enabled: true
+            },
+          });
+        }
+      });
+      $(function() {
+        jQuery(".loader").fadeOut('slow');
+      });
+    </script>
+    <!-- Chart code -->
+    <script>
+      // morris cardealer1
+      /* var cardealer1 = jQuery("#cardealer1");
+      if (cardealer1.length > 0) {
+        Morris.Donut({
+          element: cardealer1,
+          data: [{
+            label: "Dividends 2023",
+            value: 0
+          }, {
+            label: "Dividends 2022",
+            value: 0
+          }],
+          colors: ['#63CF71', '#28a745']
+        });
+      }
+      // cardealerdemo2
+      var cardealerdemo2 = jQuery('#cardealerdemo2')
+      if (cardealerdemo2.length > 0) {
+        var options = {
+          chart: {
+            height: 260,
+            type: 'bar',
+            toolbar: {
+              show: false,
+            },
+          },
+          colors: ['#8E54E9'],
+          plotOptions: {
+            bar: {
+              horizontal: false,
+              columnWidth: '16%',
+            },
+          },
+          dataLabels: {
+            enabled: false
+          },
+          stroke: {
+            show: true,
+            width: 2,
+            colors: ['transparent']
+          },
+          series: [{
+            name: 'Dividends',
+            data: [0, 0]
+          }],
+          xaxis: {
+            categories: ['2022', '2023', ],
+            axisBorder: {
+              show: false,
+            },
+            labels: {
+              style: {
+                colors: ['#fff', '#fff', '#fff', '#fff', '#fff', '#fff', '#fff', '#fff', '#fff'],
+                fontSize: '12px',
+                fontFamily: 'Roboto',
+                cssClass: 'apexcharts-xaxis-label',
+              },
+              offsetX: 0,
+            }
+          },
+          yaxis: {
+            labels: {
+              show: false,
+              style: {
+                colors: ['#ffffff'],
+                fontSize: '12px',
+                fontFamily: 'Roboto',
+                cssClass: 'apexcharts-yaxis-label',
+              }
+            }
+          },
+          fill: {
+            type: 'gradient',
+            gradient: {
+              shade: 'light',
+              type: "vertical",
+              shadeIntensity: 0,
+              gradientToColors: undefined, // optional, if not defined - uses the shades of same color in series
+              inverseColors: true,
+              opacityFrom: 1,
+              opacityTo: 1,
+              stops: [0, 50, 100]
+            }
+          },
+          legend: {
+            fontFamily: 'Roboto',
+            labels: {
+              colors: ['#fff', '#fff', '#fff'],
+              useSeriesColors: false
+            }
+          },
+          tooltip: {
+            y: {
+              formatter: function(val) {
+                return " " + val + " "
+              }
+            }
+          },
+          grid: {
+            show: true,
+            borderColor: '#f5f5f5',
+          },
+          responsive: [{
+            breakpoint: 400,
+            options: {
+              yaxis: {
+                show: false
+              }
+            },
+          }, {
+            breakpoint: 480,
+            options: {
+              plotOptions: {
+                bar: {
+                  horizontal: false,
+                  endingShape: 'rounded',
+                  columnWidth: '90%',
+                },
+              },
+              yaxis: {
+                show: false
+              }
+            },
+          }]
+        }
+        var chart = new ApexCharts(document.querySelector("#cardealerdemo2"), options);
+        chart.render();
+      } */
+    </script>
+
+    <script>
+      function printPage() {
+        // Trigger the browser's print functionality
+        window.print();
+      }
+
+      function filter(value) {
+        // console.log(value);
+        window.location.href = "?userip=MTIyLjIzLjIzLjIz&userid=dGVzdA==&sector=" + value;
+      }
+
+      function language(value) {
+        // english = document.getElementsByClassName('english');
+        // arabic = document.getElementsByClassName('arabic');
+        window.location.href = "/auth/language?&userip=MTIyLjIzLjIzLjIz&userid=dGVzdA==&value=" + value;
+        // if (value == 1) {
+        //     window.location.href = "/auth/language?value=" + value;
+        //     // Loop through each element and set the display property
+        //     for (var i = 0; i < english.length; i++) {
+        //         english[i].style.display = "table-cell";
+        //         arabic[i].style.display = "none";
+        //     }
+        // } else if (value == 2) {
+        //     window.location.href = "/auth/language?value=" + value;
+        //     // Loop through each element and set the display property
+        //     for (var i = 0; i < english.length; i++) {
+        //         english[i].style.display = "none";
+        //         arabic[i].style.display = "table-cell";
+        //     }
+        // }
+      }
+    </script>
+    <script>
+      function toggleDropdown() {
+        var dropdownContent = document.getElementById('dropdown-content');
+        dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+      }
+
+      function toggleColumn(columnIndex) {
+        var table = document.getElementById('datatable');
+        var cells = table.querySelectorAll('th:nth-child(' + columnIndex + '), td:nth-child(' + columnIndex + ')');
+        cells.forEach(function(cell) {
+          cell.style.display = (cell.style.display === 'none') ? 'table-cell' : 'none';
+        });
+      }
+    </script>
+
+  </body>
+</html>

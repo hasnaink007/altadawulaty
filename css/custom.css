@@ -1,0 +1,120 @@
+table#datatable {
+    border: none;
+}
+#dark .table td, #dark table th {
+    border-top: 1px solid #2a2e39;
+    border-right: none
+}
+.transition-left h5{
+    /* color: #fff; */
+    font-weight: 500;
+    font-size: 15px;
+}
+.img_W{
+    width:200px;
+    height:200px;
+}
+#cardealer1 svg text tspan {
+       fill: #fff;
+}
+.am5-layer-0 {
+       fill: #fff;
+       color:#fff;
+}
+#priceChart {
+       fill: #fff;
+       color:#fff;
+}
+tr{
+    display:table;
+}
+
+.table-bordered td{
+    border-left:none !important;
+    border-right:none !important;
+    border-bottom:none !important;
+        border-top: 1px solid #2a2e39 !important;
+}
+label{
+    fill:#fff;
+}
+.set_fixed {
+    position: fixed;
+    top: 77px;
+    left: 16px;
+    overflow-y: auto;
+    width: 465px;
+}
+.fixeds{
+       width: 98%;
+    position: fixed;
+    top: 59px;
+    z-index: 9;
+}
+.dark-bb{
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    top: 0;
+}
+.set_post_over{
+    position:relative;
+    /* top:40px; */
+    /* background-color:#131722; */
+}
+#dark .table td, #dark table th {
+    border-top: 1px solid #2a2e39;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+}
+ .modal {
+      display: none;
+      position: fixed;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #131722;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+        border: 1px solid #2a2e39;
+    background: #131722;
+      padding: 20px;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 100%; /* Set a maximum width if you don't want it to be too wide */
+    }
+
+    .open-modal-button {
+      cursor: pointer;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+    }
+    .ptt-3{
+    padding: 2px 11px;
+}
+@media screen and (max-width: 720px) {
+   .set_fixed {
+ position: fixed;
+    top: 54px;
+    left: 12px;
+    right: 12px;
+    overflow-y: auto;
+    width: 93%;
+    max-height: 284px;
+    z-index: 9;
+} .set_post_over {
+    position: relative;
+    top: 377px;
+}
+.d-sm-flex{
+    display:flex;
+}
+}
