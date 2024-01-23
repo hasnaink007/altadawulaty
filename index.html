@@ -22,14 +22,6 @@
   <body id="light">
 
     <script>
-      /* $(document).ready(function() {
-        $("#resizeButton").click(function() {
-          // Toggle between col-lg-3 and col-lg-12
-          $("#targetColumn").toggleClass("col-md-9 col-lg-12");
-        });
-      }); */
-    </script>
-    <script>
       $(document).ready(function() {
         $("#resizeButtontable").click(function() {
           // Toggle between col-lg-3 and col-lg-12
@@ -138,10 +130,10 @@
           <div class="market-pairs" id="otherElementId">
             <li class=" header-custom-icon row align-items-center justify-content-end" style="list-style:none;padding:0px;">
               <div class="col-lg-4 col-4">
-                <a class="nav-link   btn btn-success" href="?full_list=1&userip=MTIyLjIzLjIzLjIz&userid=dGVzdA==" style="background: #033a6a; border: 1px solid #033a6a;"> Full List </a>
+                <a class="nav-link   btn btn-success" href="/" style="background: #033a6a; border: 1px solid #033a6a;"> Full List </a>
               </div>
               <div class="col-lg-4 col-4">
-                <a class="nav-link  btn btn-success" href="?watchlist=1&userip=MTIyLjIzLjIzLjIz&userid=dGVzdA==" style="background: #033a6a; border: 1px solid #033a6a;"> Watchlist <span class="bg-danger" style="position: absolute; top: -7px; padding: 5px; border-radius: 50%; height: 17px; line-height: 9px;    right: 14px;">9</span></a>
+                <a class="nav-link  btn btn-success" href="?watchlist=1" style="background: #033a6a; border: 1px solid #033a6a;"> Watchlist <span class="bg-danger" style="position: absolute; top: -7px; padding: 5px; border-radius: 50%; height: 17px; line-height: 9px;    right: 14px;">9</span></a>
               </div>
               <div class="col-lg-2 col-2">
                 <a class="nav-link text-right" href="#" id="resizeButtontable">
@@ -150,54 +142,10 @@
               </div>
             </li>
             <ul class="nav nav-pills " role="tablist">
-              <!-- <li class="nav-item m-1 " style="width:25%">
-                <select onchange="language(this.value);" class="form-contorl p-1" style="background:#1e2435; color:#fff;width:100%;border-radius: 4px;">
-                  <option value disabled selected>Choose Language...</option>
-                  <option value="1">English</option>
-                  <option value="2">Arabic</option>
-                </select>
-              </li> -->
-              <!-- <li class="nav-item m-1" style="width:25%">
-                <select onchange="filter(this.value);" class="form-contorl p-1" style="background:#1e2435;  color:#fff; width:100%; border-radius: 4px; width:100%">
-                  <option value disabled selected>Choose Category...</option>
-                  <option value="Industrials">Industrials</option>
-                  <option value="Energy">Energy</option>
-                  <option value="Consumer Cyclical">Consumer Cyclical</option>
-                  <option value="Basic Materials">Basic Materials</option>
-                  <option value="Consumer Defensive">Consumer Defensive</option>
-                  <option value="Communication Services">Communication Services</option>
-                  <option value="Technology">Technology</option>
-                  <option value="Healthcare">Healthcare</option>
-                  <option value="Financial Services">Financial Services</option>
-                  <option value="Utilities">Utilities</option>
-                  <option value="Real Estate">Real Estate</option>
-                </select>
-              </li> -->
               <li class="nav-item m-1 english-1" id="t_d_none">
                 <div class="custom-dropdown" style="width: 100%;">
-                  <!-- <button class="btn btn-light p-2" style="width:100%;height: 32px;" onclick="toggleDropdown()"> Show/Hide -->
-                    <!-- <i class="dashicons dashicons-admin-generic"></i> -->
                   </button>
                   <div id="dropdown-content" class="dropdown-content">
-                    <!-- <label><input type="checkbox" class="mr-2" onclick="toggleColumn(1)" checked>Code</label><label><input type="checkbox" class="mr-2" onclick="toggleColumn(3)" checked> Short Name</label> -->
-                    <!-- <label><input type="checkbox" class="mr-2" onclick="toggleColumn(5)">Company Name </label> -->
-                    <!-- <label><input type="checkbox" class="mr-2" onclick="toggleColumn(7)"> Category </label>
-                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(9)"> Dividends 2023 </label>
-                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(11)">Dividends 2022 </label>
-                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(13)"> High </label>
-                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(15)">Low </label>
-                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(17)"> Current Price </label>
-                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(19)">% of 2023 Dividends of high </label>
-                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(21)"> % of 2023 Dividends of low </label>
-                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(23)"> % of 2023 Dividends of closing </label>
-                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(25)"> % of 2022 Dividends of high </label>
-                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(27)"> % of 2022 Dividends of low </label>
-                    <label><input type="checkbox" class="mr-2" onclick="toggleColumn(29)"> Stability of Prices </label> -->
-                    
-                    <!-- <label><input type="checkbox" class="mr-2" onclick="toggleColumn(31)">Difference between Current and Lowest </label> -->
-                    <!-- <label><input type="checkbox" class="mr-2" onclick="toggleColumn(33)">Distance Closing low 3 Years</label> -->
-                    <!-- <label><input type="checkbox" class="mr-2" onclick="toggleColumn(35)">Dividends High Past 3 Years</label><label><input type="checkbox" class="mr-2" onclick="toggleColumn(37)">Variation Past 3 Years</label><label><input type="checkbox" class="mr-2" onclick="toggleColumn(39)">Overall Past 3 Years</label><label><input type="checkbox" class="mr-2" onclick="toggleColumn(41)">Overall Light Past 3 Years</label> -->
-                    <!-- <label><input type="checkbox" class="mr-2" onclick="toggleColumn(43)" checked> Over All Rank</label> -->
                   </div>
                 </div>
               </li>
@@ -216,16 +164,7 @@
             </div>
           </div>
         </div>
-        <script>
-          // var table = $('#datatable').DataTable();
-         /*  $('#datatable').DataTable({
-            searching: false,
-            paging: false,
-            ordering: false,
-            scroller: false,
-          }); */
-          // new DataTable.Responsive(table);
-        </script>
+
         <!-- header end -->
         <div id="targetColumn" x-data="{fullscreen: false}" x-bind:class="fullscreen ? 'col-md-9 set_post_over col-md-9 col-lg-12' : 'col-md-9 set_post_over'">
           <div class="row align-items-center">
@@ -234,29 +173,22 @@
                 <div class="row align-items-center">
                   <div class="col-lg-6 col-12">
                     <h5 class="text-white mb-0">Saudi Stock Exchange </h5>
-                    <!-- <div class="d-flex">
-                      <span class="text-danger" style="font-size: 10px;    margin-top: 4px;">Closed</span>
-                      <p class=" ml-2" style="font-size: 10px;">05/01/2024 03:49:22 PM</p>
-                    </div> -->
                   </div>
                   <div class="col-lg-6 text-right col-12">
                     <span class=" bg-light" style="font-size: 11px; border-radius: 15px; padding: 2px 11px;">TADAWUL ALL SHARE INDEX <i class="fa fa-caret-down"></i>
                     </span>
-                    <!-- <h5 class="text-white mt-1" style="margin-left: 49px;">12145.45
-                      <span class="text-success ml-1">56.66</span><span class="bg-success ml-1" style="font-size: 11px;padding: 1px 6px;">0.50%</span>
-                    </h5> -->
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="row align-items-center">
-            <div class="col-md-6 col-6 mb-3 ">
+            <div class="col-md-10 col-10 mb-3 ">
               <img src="#" alt="" />
               <h1 class=" ml-3 mb-0" x-text="$store?.ticker?.company.title">---</h1>
               <h2 class=" ml-3" x-text="$store?.ticker?.company.code">---</h2>
             </div>
-            <div class="col-lg-6 col-6 mb-3 ">
+            <div class="col-lg-2 col-2 mb-3 ">
               <a class="nav-link  text-right" style="font-size: 23px;" href="#" id="resizeButton" @click="fullscreen = ! fullscreen">
                 <i class="icon ion-md-expand "></i>
               </a>
@@ -464,36 +396,6 @@
                           </div>
                         </div>
                       </div>
-                      <!-- <div class="ptt-3 m-b-5" style="border-bottom: 1px solid rgb(218 220 224 / 13%);">
-                        <div class="d-sm-flex justify-content-between">
-                          <div class="transition-left">
-                            <h5 class="mt-1 mb-0">Sector</h5>
-                          </div>
-                          <div class="transition-right text-sm-right">
-                            <strong class=" d-block "> Industrials </strong>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="ptt-3 m-b-5" style="border-bottom: 1px solid rgb(218 220 224 / 13%);">
-                        <div class="d-sm-flex justify-content-between">
-                          <div class="transition-left">
-                            <h5 class="mt-1 mb-0">Industry</h5>
-                          </div>
-                          <div class="transition-right text-sm-right">
-                            <strong class=" d-block "> Conglomerates </strong>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="ptt-3 m-b-5" style="border-bottom: 1px solid rgb(218 220 224 / 13%);">
-                        <div class="d-sm-flex justify-content-between">
-                          <div class="transition-left">
-                            <h5 class="mt-1 mb-0">P/E Ratio</h5>
-                          </div>
-                          <div class="transition-right text-sm-right">
-                            <strong class=" d-block "> 97.1429 </strong>
-                          </div>
-                        </div>
-                      </div> -->
                       <div class="ptt-3 m-b-5" style="border-bottom: 1px solid rgb(218 220 224 / 13%);">
                         <div class="d-sm-flex justify-content-between">
                           <div class="transition-left">
@@ -592,184 +494,5 @@
         jQuery(".loader").fadeOut('slow');
       });
     </script>
-    <!-- Chart code -->
-    <script>
-      // morris cardealer1
-      /* var cardealer1 = jQuery("#cardealer1");
-      if (cardealer1.length > 0) {
-        Morris.Donut({
-          element: cardealer1,
-          data: [{
-            label: "Dividends 2023",
-            value: 0
-          }, {
-            label: "Dividends 2022",
-            value: 0
-          }],
-          colors: ['#63CF71', '#28a745']
-        });
-      }
-      // cardealerdemo2
-      var cardealerdemo2 = jQuery('#cardealerdemo2')
-      if (cardealerdemo2.length > 0) {
-        var options = {
-          chart: {
-            height: 260,
-            type: 'bar',
-            toolbar: {
-              show: false,
-            },
-          },
-          colors: ['#8E54E9'],
-          plotOptions: {
-            bar: {
-              horizontal: false,
-              columnWidth: '16%',
-            },
-          },
-          dataLabels: {
-            enabled: false
-          },
-          stroke: {
-            show: true,
-            width: 2,
-            colors: ['transparent']
-          },
-          series: [{
-            name: 'Dividends',
-            data: [0, 0]
-          }],
-          xaxis: {
-            categories: ['2022', '2023', ],
-            axisBorder: {
-              show: false,
-            },
-            labels: {
-              style: {
-                colors: ['#fff', '#fff', '#fff', '#fff', '#fff', '#fff', '#fff', '#fff', '#fff'],
-                fontSize: '12px',
-                fontFamily: 'Roboto',
-                cssClass: 'apexcharts-xaxis-label',
-              },
-              offsetX: 0,
-            }
-          },
-          yaxis: {
-            labels: {
-              show: false,
-              style: {
-                colors: ['#ffffff'],
-                fontSize: '12px',
-                fontFamily: 'Roboto',
-                cssClass: 'apexcharts-yaxis-label',
-              }
-            }
-          },
-          fill: {
-            type: 'gradient',
-            gradient: {
-              shade: 'light',
-              type: "vertical",
-              shadeIntensity: 0,
-              gradientToColors: undefined, // optional, if not defined - uses the shades of same color in series
-              inverseColors: true,
-              opacityFrom: 1,
-              opacityTo: 1,
-              stops: [0, 50, 100]
-            }
-          },
-          legend: {
-            fontFamily: 'Roboto',
-            labels: {
-              colors: ['#fff', '#fff', '#fff'],
-              useSeriesColors: false
-            }
-          },
-          tooltip: {
-            y: {
-              formatter: function(val) {
-                return " " + val + " "
-              }
-            }
-          },
-          grid: {
-            show: true,
-            borderColor: '#f5f5f5',
-          },
-          responsive: [{
-            breakpoint: 400,
-            options: {
-              yaxis: {
-                show: false
-              }
-            },
-          }, {
-            breakpoint: 480,
-            options: {
-              plotOptions: {
-                bar: {
-                  horizontal: false,
-                  endingShape: 'rounded',
-                  columnWidth: '90%',
-                },
-              },
-              yaxis: {
-                show: false
-              }
-            },
-          }]
-        }
-        var chart = new ApexCharts(document.querySelector("#cardealerdemo2"), options);
-        chart.render();
-      } */
-    </script>
-
-    <script>
-      function printPage() {
-        // Trigger the browser's print functionality
-        window.print();
-      }
-
-      function filter(value) {
-        // console.log(value);
-        window.location.href = "?userip=MTIyLjIzLjIzLjIz&userid=dGVzdA==&sector=" + value;
-      }
-
-      function language(value) {
-        // english = document.getElementsByClassName('english');
-        // arabic = document.getElementsByClassName('arabic');
-        window.location.href = "/auth/language?&userip=MTIyLjIzLjIzLjIz&userid=dGVzdA==&value=" + value;
-        // if (value == 1) {
-        //     window.location.href = "/auth/language?value=" + value;
-        //     // Loop through each element and set the display property
-        //     for (var i = 0; i < english.length; i++) {
-        //         english[i].style.display = "table-cell";
-        //         arabic[i].style.display = "none";
-        //     }
-        // } else if (value == 2) {
-        //     window.location.href = "/auth/language?value=" + value;
-        //     // Loop through each element and set the display property
-        //     for (var i = 0; i < english.length; i++) {
-        //         english[i].style.display = "none";
-        //         arabic[i].style.display = "table-cell";
-        //     }
-        // }
-      }
-    </script>
-    <script>
-      function toggleDropdown() {
-        var dropdownContent = document.getElementById('dropdown-content');
-        dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
-      }
-
-      function toggleColumn(columnIndex) {
-        var table = document.getElementById('datatable');
-        var cells = table.querySelectorAll('th:nth-child(' + columnIndex + '), td:nth-child(' + columnIndex + ')');
-        cells.forEach(function(cell) {
-          cell.style.display = (cell.style.display === 'none') ? 'table-cell' : 'none';
-        });
-      }
-    </script>
-
   </body>
 </html>

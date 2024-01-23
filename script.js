@@ -49,25 +49,7 @@ document.addEventListener('alpine:init', () => {
 				this.company = company ? company : res.companies[0];
 				this.companies = res.companies||[]
 
-				$('#datatable').DataTable().destroy();
-				let rows = [];
-				this.companies.forEach(c => {
-					rows.push(`<tr>
-						<td class="english">
-							<a href="?hash=${c._id}" title="Remove from watchlist "><i class="fa fa-star" style='color:yellow'></i></a> ${c.code}
-						</td>
-						<td class="english"><a href="?hash=${c._id}" style="color:#333;">${c.title}</a></td>
-						<td class="english">${(((c.close||0-c.open||0)/c.open||0)*100).toFixed(2)}%</td>
-					</tr>`)
-				})
-				$('#datatable').find('tbody').append(rows.join(''));
-				$('#datatable').DataTable({ searching: true, paging: false, ordering: true, scroller: true, }).draw();
-
-				var addClassUpperDiv = document.getElementById('datatable_filter');
-				var parentDiv = addClassUpperDiv?.closest('.col-md-6');
-				if (parentDiv) {
-					parentDiv.classList.add('my_own_class');
-				}
+				populateTickerList(this.companies)
 
 				let data = await fetch(window.location.origin + `:5000/?ticker=${new URLSearchParams(window.location.search).get('hash')||this.company?._id}`)
 				data = await data.json()
@@ -586,20 +568,6 @@ document.addEventListener('alpine:init', () => {
 
 				}, ];
 
-
-
-
-				/* let groupingAvgs = [];
-				for(key in grouping){
-					let group = grouping[k]||[]
-					let avgs = {
-						highAvg: group.reduce((sum,c) => sum+Number(c.current_year_div_from_high), 0),
-						lowAvg: group.reduce((sum,c) => sum+Number(c.current_year_div_from_low), 0),
-						highAvg: group.reduce((sum,c) => sum+Number(c.current_year_div_from_high), 0),
-					}
-				} */
-
-
 				series.data.setAll(data);
 				xAxis.data.setAll(data);
 				// Animate chart and series in
@@ -793,6 +761,66 @@ document.addEventListener('alpine:init', () => {
 				chart.appear(1000, 100);
 			  }); // end am5.ready()
 		},
-
 	})
 })
+
+function populateTickerList(companies){
+	$('#datatable').DataTable().destroy();
+	let rows = [];
+	let favs = getFavs()
+	companies.forEach(c => {
+		rows.push(`<tr>
+			<td class="english">
+				<i class="fa fa-star" onclick="toggleFav('${c._id}')" style='color:${favs?.includes(c._id)?'yellow':'#ccc'}'></i><a href="?hash=${c._id}" style="color: #333" title="Remove from watchlist "> ${c.code}</a>
+			</td>
+			<td class="english"><a href="?hash=${c._id}" style="color:#333;">${c.title}</a></td>
+			<td class="english">${(((c.close||0-c.open||0)/c.open||0)*100).toFixed(2)}%</td>
+		</tr>`)
+	})
+	$('#datatable').find('tbody').append(rows.join(''));
+	$('#datatable').DataTable({ searching: true, paging: false, ordering: true, scroller: true, }).draw();
+
+	var addClassUpperDiv = document.getElementById('datatable_filter');
+	var parentDiv = addClassUpperDiv?.closest('.col-md-6');
+	if (parentDiv) {
+		parentDiv.classList.add('my_own_class');
+	}
+}
+
+function getFavs(){
+	try{
+		let favs = JSON.parse(window.localStorage.altadawulatiFavTickers||'[]')
+		return Array.isArray(favs) ? favs : [];
+	}catch(e){
+		console.log(e)
+		return []
+	}
+}
+function setFavs(favs){
+	window.localStorage.altadawulatiFavTickers = JSON.stringify(favs)
+}
+
+function addFav(id){
+	let favs = getFavs()
+	favs.push(id)
+	setFavs(favs)
+	return favs
+}
+
+function removeFav(id){
+	let favs = getFavs().filter(i => (i != id))
+	setFavs(favs)
+	return favs
+}
+
+function toggleFav(id){
+	return console.log(id)
+	let favs = getFavs()
+	if(favs.includes(id)){
+		favs = favs.filter(i => (i != id))
+	}else{
+		favs.push(id)
+	}
+	setFavs(favs)
+	return favs
+}
