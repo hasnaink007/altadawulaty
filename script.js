@@ -18,7 +18,7 @@ document.addEventListener('alpine:init', () => {
 		  companies: [],
 		  
 		  async fetchData() {
-			fetch(window.location.origin + `:5000/?ticker=${new URLSearchParams(window.location.search).get('hash')||'e48ded55-6886-4c91-92d6-e6b93917f68a'}`)
+			/* fetch(window.location.origin + `:5000/?ticker=${new URLSearchParams(window.location.search).get('hash')||'e48ded55-6886-4c91-92d6-e6b93917f68a'}`)
 			.then(response => response.json())
 			.then(data => {
 				this.data = data;
@@ -39,40 +39,63 @@ document.addEventListener('alpine:init', () => {
 				this.allOverAnalysisChart()
 				this.overAllRank2()
 			})
-			.catch(error => { console.error('Error fetching data:', error); })
+			.catch(error => { console.error('Error fetching data:', error); }) */
 
 			fetch('https://www.aitadawulaty.com/_functions/companyCodes')
 			.then(res => res.json())
-			.then(res => {
+			.then(async (res) => {
 				let hash = new URLSearchParams(window.location.search).get('hash')
 				let company = (res.companies||[]).find(c => c._id == hash)
 				this.company = company ? company : res.companies[0];
 				this.companies = res.companies||[]
+
+				$('#datatable').DataTable().destroy();
+				let rows = [];
+				this.companies.forEach(c => {
+					rows.push(`<tr>
+						<td class="english">
+							<a href="?hash=${c._id}" title="Remove from watchlist "><i class="fa fa-star" style='color:yellow'></i></a> ${c.code}
+						</td>
+						<td class="english"><a href="?hash=${c._id}" style="color:#333;">${c.title}</a></td>
+						<td class="english">${(((c.close||0-c.open||0)/c.open||0)*100).toFixed(2)}%</td>
+					</tr>`)
+				})
+				$('#datatable').find('tbody').append(rows.join(''));
+				$('#datatable').DataTable({ searching: true, paging: false, ordering: true, scroller: true, }).draw();
+
+				var addClassUpperDiv = document.getElementById('datatable_filter');
+				var parentDiv = addClassUpperDiv?.closest('.col-md-6');
+				if (parentDiv) {
+					parentDiv.classList.add('my_own_class');
+				}
+
+				let data = await fetch(window.location.origin + `:5000/?ticker=${new URLSearchParams(window.location.search).get('hash')||this.company?._id}`)
+				data = await data.json()
+
+				this.data = data;
+				this.prices = (data.prices||[]).sort((a,b) => new Date(a.eodhd_date_str) < new Date(b.eodhd_date_str));
+				this.dividends = (data.dividends||[]).sort((a,b) => new Date(a.eodhd_date_str) > new Date(b.eodhd_date_str));
+				this.calculations = (data.calculations||[]).sort((a,b) => new Date(a.eodhd_date_str) < new Date(b.eodhd_date_str));
+				this.dividends.forEach(d => {
+					if( !this.dividendsDates.includes( new Date(d.eodhd_date_str).getUTCFullYear() ) ){
+						this.dividendsDates.push( new Date(d.eodhd_date_str).getUTCFullYear() )
+					}
+				});
+
+				this.loadPricesChart()
+				this.dividendsChart()
+				this.distanceChart()
+				this.variationsChart()
+				this.overAllRank()
+				this.allOverAnalysisChart()
+				this.overAllRank2()
 			})
 			.catch(e => console.log(e))
-			.finally(e => {
+			/* .finally(e => {
 				setTimeout(() => {
-					$('#datatable').DataTable().destroy();
-					let rows = [];
-					this.companies.forEach(c => {
-						rows.push(`<tr>
-							<td class="english">
-								<a href="?hash=${c._id}" title="Remove from watchlist "><i class="fa fa-star" style='color:yellow'></i></a> ${c.code}
-							</td>
-							<td class="english"><a href="?hash=${c._id}" style="color:#333;">${c.title}</a></td>
-							<td class="english">${(((c.close||0-c.open||0)/c.open||0)*100).toFixed(2)}%</td>
-						</tr>`)
-					})
-					$('#datatable').find('tbody').append(rows.join(''));
-					$('#datatable').DataTable({ searching: true, paging: false, ordering: true, scroller: true, }).draw();
-
-					var addClassUpperDiv = document.getElementById('datatable_filter');
-					var parentDiv = addClassUpperDiv?.closest('.col-md-6');
-					if (parentDiv) {
-						parentDiv.classList.add('my_own_class');
-					}
+					
 				}, 2000)
-			})
+			}) */
 		},
 
 		async loadPricesChart(){
