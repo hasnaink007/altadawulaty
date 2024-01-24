@@ -129,11 +129,11 @@
         <div class="col-md-3" id="targetColumntable">
           <div class="market-pairs" id="otherElementId">
             <li class=" header-custom-icon row align-items-center justify-content-end" style="list-style:none;padding:0px;">
-              <div class="col-lg-4 col-4">
-                <a class="nav-link   btn btn-success" href="/" style="background: #033a6a; border: 1px solid #033a6a;"> Full List </a>
+              <div class="col-lg-4 col-4" x-data="">
+                <a class="nav-link   btn btn-success" href="#" @click="$store?.ticker?.toggleView(event,'all')" style="background: #033a6a; border: 1px solid #033a6a;"> Full List </a>
               </div>
-              <div class="col-lg-4 col-4">
-                <a class="nav-link  btn btn-success" href="?watchlist=1" style="background: #033a6a; border: 1px solid #033a6a;"> Watchlist <span class="bg-danger" style="position: absolute; top: -7px; padding: 5px; border-radius: 50%; height: 17px; line-height: 9px;    right: 14px;">9</span></a>
+              <div class="col-lg-4 col-4" x-data="">
+                <a class="nav-link  btn btn-success" href="?watchlist=1" @click="$store?.ticker?.toggleView(event,'favs')" style="background: #033a6a; border: 1px solid #033a6a;"> Watchlist <span class="bg-danger" style="position: absolute; top: -7px; padding: 5px; border-radius: 50%; height: 17px; line-height: 9px;    right: 14px;">9</span></a>
               </div>
               <div class="col-lg-2 col-2">
                 <a class="nav-link text-right" href="#" id="resizeButtontable">

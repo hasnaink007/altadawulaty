@@ -6,41 +6,29 @@ document.addEventListener('alpine:init', () => {
 			console.log('alpine init')
 			this.fetchData()
 			// this.dividendsChart()
-		  },
+		},
 		  
-		  on: false,
-		  data: {},
-		  company: { title: '' },
-		  prices: [],
-		  dividends: [],
-		  calculations: [],
-		  dividendsDates: [],
-		  companies: [],
-		  
-		  async fetchData() {
-			/* fetch(window.location.origin + `:5000/?ticker=${new URLSearchParams(window.location.search).get('hash')||'e48ded55-6886-4c91-92d6-e6b93917f68a'}`)
-			.then(response => response.json())
-			.then(data => {
-				this.data = data;
-				this.prices = (data.prices||[]).sort((a,b) => new Date(a.eodhd_date_str) < new Date(b.eodhd_date_str));
-				this.dividends = (data.dividends||[]).sort((a,b) => new Date(a.eodhd_date_str) > new Date(b.eodhd_date_str));
-				this.calculations = (data.calculations||[]).sort((a,b) => new Date(a.eodhd_date_str) < new Date(b.eodhd_date_str));
-				this.dividends.forEach(d => {
-					if( !this.dividendsDates.includes( new Date(d.eodhd_date_str).getUTCFullYear() ) ){
-						this.dividendsDates.push( new Date(d.eodhd_date_str).getUTCFullYear() )
-					}
-				});
+		on: false,
+		data: {},
+		company: { title: '' },
+		prices: [],
+		dividends: [],
+		calculations: [],
+		dividendsDates: [],
+		companies: [],
+		
+		toggleView(e, view = 'all'){
+			e.preventDefault()
+			if(view == 'all'){
+				populateTickerList(this.companies)
+			}else{
+				let favs = getFavs()
+				let companies = this.companies.filter(c => favs.includes(c._id))
+				populateTickerList(companies)
+			}
+		},
 
-				this.loadPricesChart()
-				this.dividendsChart()
-				this.distanceChart()
-				this.variationsChart()
-				this.overAllRank()
-				this.allOverAnalysisChart()
-				this.overAllRank2()
-			})
-			.catch(error => { console.error('Error fetching data:', error); }) */
-
+		async fetchData() {
 			fetch('https://www.aitadawulaty.com/_functions/companyCodes')
 			.then(res => res.json())
 			.then(async (res) => {
@@ -766,12 +754,13 @@ document.addEventListener('alpine:init', () => {
 
 function populateTickerList(companies){
 	$('#datatable').DataTable().destroy();
+	$('#datatable').find('tbody').html('')
 	let rows = [];
 	let favs = getFavs()
 	companies.forEach(c => {
 		rows.push(`<tr>
 			<td class="english">
-				<i class="fa fa-star" onclick="toggleFav('${c._id}')" style='color:${favs?.includes(c._id)?'yellow':'#ccc'}'></i><a href="?hash=${c._id}" style="color: #333" title="Remove from watchlist "> ${c.code}</a>
+				<i class="fa fa-star" data-hash="${c._id}" onclick="favStarClick(this)" style='color:${favs?.includes(c._id)?'yellow':'#ccc'}'></i><a href="?hash=${c._id}" style="color: #333" title="Remove from watchlist "> ${c.code}</a>
 			</td>
 			<td class="english"><a href="?hash=${c._id}" style="color:#333;">${c.title}</a></td>
 			<td class="english">${(((c.close||0-c.open||0)/c.open||0)*100).toFixed(2)}%</td>
@@ -787,6 +776,15 @@ function populateTickerList(companies){
 	}
 }
 
+
+function favStarClick(el){
+	let id = el.getAttribute('data-hash')
+	if(toggleFav(id).includes(id)){
+		el.style.color = 'yellow'
+	}else{
+		el.style.color = '#ccc'
+	}
+}
 function getFavs(){
 	try{
 		let favs = JSON.parse(window.localStorage.altadawulatiFavTickers||'[]')
@@ -814,7 +812,7 @@ function removeFav(id){
 }
 
 function toggleFav(id){
-	return console.log(id)
+	// return console.log(id)
 	let favs = getFavs()
 	if(favs.includes(id)){
 		favs = favs.filter(i => (i != id))

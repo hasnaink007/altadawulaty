@@ -2,7 +2,7 @@ table#datatable {
     border: none;
 }
 table#datatable .fa.fa-star:hover{
-    color: yellow;
+    color: yellow !important;
 }
 #dark .table td, #dark table th {
     border-top: 1px solid #2a2e39;
