@@ -39,7 +39,7 @@ document.addEventListener('alpine:init', () => {
 
 				populateTickerList(this.companies)
 
-				let data = await fetch(window.location.origin + `:5000/?ticker=${new URLSearchParams(window.location.search).get('hash')||this.company?._id}`)
+				let data = await fetch(`https://us-central1-pristine-gadget-407911.cloudfunctions.net/eodhd/?ticker=${new URLSearchParams(window.location.search).get('hash')||this.company?._id}`)
 				data = await data.json()
 
 				this.data = data;
