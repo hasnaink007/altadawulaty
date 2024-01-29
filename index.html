@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
+    <!-- <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Saudi Stock Exchange</title>
     <link rel="icon" href="./img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/custom.css">
-    <!-- plugin stylesheet -->
     <link rel="stylesheet" type="text/css" href="./css/vendors.css" />
-    <!-- app style -->
     <link href="./css/style-2.css" rel="stylesheet" type="text/css" />
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap4.min.js"></script>
-    <!-- Include DataTables Buttons JS along with DataTables JS -->
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script> -->
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap4.min.js"></script> -->
   </head>
   <body id="light">
-
-    <script>
+    <center>
+      <h3>403! Forbidden</h3>
+    </center>
+    <!-- <script>
       $(document).ready(function() {
         $("#resizeButtontable").click(function() {
           // Toggle between col-lg-3 and col-lg-12
@@ -78,51 +76,11 @@
               <a href="https://www.aitadawulaty.com/account/my-account" class="" style="text-decoration:underline;">Back to your account </a>
             </li>
             <li class="nav-item header-custom-icon">
-              <!-- <a href="/auth/print_page?id=2030&userip=MTIyLjIzLjIzLjIz&userid=dGVzdA==" class=" ml-2" style="background: none;border: none;outline: none;"><span><img src="./img/printer.png" style="width:30px;"></span></a> -->
             </li>
-            <!-- <li class="nav-item header-custom-icon ml-3"><button id="open-modal-btn" style="background: none;border:none;outline:none;"><i class="fa fa-cog "></i></button></li> -->
           </ul>
         </div>
       </nav>
     </header>
-
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <div class="row">
-          <div class="col-lg-12">
-            <h5 class="text-center ">Choose Sidebar Colour</h5>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <a href="/auth/update_color?color=131722&userip=MTIyLjIzLjIzLjIz&userid=dGVzdA==">
-              <p style="color: #fff;background: #131722;padding: 5px;text-align: center;margin: 2px 0px;">Default </p>
-            </a>
-          </div>
-          <div class="col-lg-12">
-            <a href="/auth/update_color?color=072e50&userip=MTIyLjIzLjIzLjIz&userid=dGVzdA==">
-              <p style="color: #fff;background: #072e50;padding: 5px; text-align: center;margin: 2px 0px;">Blue </p>
-            </a>
-          </div>
-          <div class="col-lg-12">
-            <a href="/auth/update_color?color=99202b&userip=MTIyLjIzLjIzLjIz&userid=dGVzdA==">
-              <p style="color: #fff;background: #99202b; padding: 5px; text-align: center;margin: 2px 0px;">Red </p>
-            </a>
-          </div>
-          <div class="col-lg-12">
-            <a href="/auth/update_color?color=4e545a&userip=MTIyLjIzLjIzLjIz&userid=dGVzdA==">
-              <p style="color: #fff;background: #4e545a; padding: 5px; text-align: center;margin: 2px 0px;">Grey </p>
-            </a>
-          </div>
-          <div class="col-lg-12">
-            <a href="/auth/update_color?color=1a712e&userip=MTIyLjIzLjIzLjIz&userid=dGVzdA==">
-              <p style="color: #fff;background: #1a712e; padding: 5px; text-align: center;margin: 2px 0px;">Green </p>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
     
     <div class="container-fluid mtb15 no-fluid">
       <div class="row">
@@ -165,7 +123,6 @@
           </div>
         </div>
 
-        <!-- header end -->
         <div id="targetColumn" x-data="{fullscreen: false}" x-bind:class="fullscreen ? 'col-md-9 set_post_over col-md-9 col-lg-12' : 'col-md-9 set_post_over'">
           <div class="row align-items-center">
             <div class="col-md-12 col-12 mb-3 p-0">
@@ -209,13 +166,11 @@
                         <span class="bg-dark text-light" style="padding: 2px 6px;border-radius:5px; font-size: 9px;">Low : <span x-text="$store?.ticker?.company.low">---</span></span>
                       </div>
                     </div>
-                    <!-- TradingView Widget BEGIN -->
                     <div class="tradingview-widget-container">
                       <div class="apexchart-wrapper">
                         <div id="priceChart"></div>
                       </div>
                     </div>
-                    <!-- TradingView Widget END -->
                   </div>
                 </div>
                 <div class="col-lg-6 mb-4">
@@ -232,13 +187,11 @@
                         </span>
                       </div>
                     </div>
-                    <!-- TradingView Widget BEGIN -->
                     <div class="tradingview-widget-container">
                       <div class="apexchart-wrapper">
                         <div id="dividendsChart"></div>
                       </div>
                     </div>
-                    <!-- TradingView Widget END -->
                   </div>
                 </div>
                 <div class="col-lg-6">
@@ -255,13 +208,11 @@
                         </span>
                       </div>
                     </div>
-                    <!-- TradingView Widget BEGIN -->
                     <div class="tradingview-widget-container">
                       <div class="apexchart-wrapper">
                         <div id="distanceChart"></div>
                       </div>
                     </div>
-                    <!-- TradingView Widget END -->
                   </div>
                 </div>
                 <div class="col-lg-6">
@@ -278,13 +229,11 @@
                         </span>
                       </div>
                     </div>
-                    <!-- TradingView Widget BEGIN -->
                     <div class="tradingview-widget-container">
                       <div class="apexchart-wrapper">
                         <div id="stabilityChart"></div>
                       </div>
                     </div>
-                    <!-- TradingView Widget END -->
                   </div>
                 </div>
               </div>
@@ -303,13 +252,13 @@
                     </span>
                   </div>
                 </div>
-                <!-- TradingView Widget BEGIN -->
+                
                 <div class="tradingview-widget-container">
                   <div class="apexchart-wrapper">
                     <div id="overallRankChart"></div>
                   </div>
                 </div>
-                <!-- TradingView Widget END -->
+                
               </div>
 
               
@@ -442,17 +391,17 @@
         </div>
       </div>
     </div>
-    <!-- plugins -->
+    
     <script src="./js/vendors.js"></script>
-    <!-- custom app -->
+    
     <script src="./js/app.js"></script>
-    <!-- <script src="./assets/js/jquery-3.4.1.min.js"></script> -->
+    
     <script src="./js/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/amcharts-core.min.js"></script>
     <script src="./js/amcharts.min.js"></script>
     <script src="./js/jquery.mCustomScrollbar.js"></script>
-    <!-- Resources -->
+    
     <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
@@ -493,6 +442,6 @@
       $(function() {
         jQuery(".loader").fadeOut('slow');
       });
-    </script>
+    </script> -->
   </body>
 </html>
